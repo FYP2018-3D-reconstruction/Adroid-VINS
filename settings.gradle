@@ -1,3 +1,4 @@
+include ':android_vins'
 /*
  * Copyright (C) 2011 Google Inc.
  *
