@@ -29,7 +29,7 @@ public class MainActivity extends RosActivity {
     private SensorManager mSensorManager;
 
     public MainActivity() {
-        super("CameraTutorial", "CameraTutorial");
+        super("VINSCamera", "VINSCamera");
     }
 
     @Override
@@ -42,28 +42,28 @@ public class MainActivity extends RosActivity {
         mSensorManager = (SensorManager)this.getSystemService(SENSOR_SERVICE);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            final Toast toast;
-            if (numberOfCameras > 1) {
-                cameraId = (cameraId + 1) % numberOfCameras;
-                rosCameraPreviewView.releaseCamera();
-                rosCameraPreviewView.setCamera(getCamera());
-                toast = Toast.makeText(this, "Switching cameras.", Toast.LENGTH_SHORT);
-            } else {
-                toast = Toast.makeText(this, "No alternative cameras to switch to.", Toast.LENGTH_SHORT);
-            }
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    toast.show();
-                }
-            });
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        if (event.getAction() == MotionEvent.ACTION_UP) {
+//            int numberOfCameras = Camera.getNumberOfCameras();
+//            final Toast toast;
+//            if (numberOfCameras > 1) {
+//                cameraId = (cameraId + 1) % numberOfCameras;
+//                rosCameraPreviewView.releaseCamera();
+//                rosCameraPreviewView.setCamera(getCamera());
+//                toast = Toast.makeText(this, "Switching cameras.", Toast.LENGTH_SHORT);
+//            } else {
+//                toast = Toast.makeText(this, "No alternative cameras to switch to.", Toast.LENGTH_SHORT);
+//            }
+//            runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    toast.show();
+//                }
+//            });
+//        }
+//        return true;
+//    }
 
     @Override
     protected void init(NodeMainExecutor nodeMainExecutor) {
